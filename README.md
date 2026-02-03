@@ -2,32 +2,32 @@
 
 ## a. Problem Statement
 
-The objective of this assignment is to build and evaluate multiple machine learning classification models to predict whether a bank customer will subscribe to a term deposit. The assignment also includes deploying the trained models using a Streamlit web application.
+The objective of this assignment is to build and evaluate multiple machine learning classification models to predict whether a bank customer will subscribe to a term deposit. The assignment also includes deploying the trained models using a Streamlit web application for interactive evaluation.
 
 ---
 
 ## b. Dataset Description
 
-The Bank Marketing dataset is used for this assignment. The dataset contains information related to bank customers and their responses to marketing campaigns. The goal is to predict whether a customer will subscribe to a term deposit.
+The Bank Marketing dataset is used for this assignment. The dataset contains information related to bank customers and their responses to previous marketing campaigns. The goal is to predict whether a customer will subscribe to a term deposit.
 
-- Dataset Source: Public Bank Marketing Dataset  
-- Total number of instances: 11,162  
-- Total number of features: 16 input features and 1 target variable  
-- Type of problem: Binary Classification  
-- Target Variable: `deposit` (yes / no)
+- **Dataset Source:** Public Bank Marketing Dataset  
+- **Total number of instances:** 11,162  
+- **Total number of features:** 16 input features and 1 target variable  
+- **Type of problem:** Binary Classification  
+- **Target Variable:** `deposit` (yes/no)
 
-The dataset consists of both numerical and categorical attributes such as age, job, marital status, education, balance, loan information, contact type, campaign details, and previous campaign outcomes.
+The dataset consists of both numerical and categorical attributes, including age, job, marital status, education, account balance, housing loan, personal loan, contact type, campaign details, and previous campaign outcomes.
 
 ---
 
 ## c. Data Preprocessing
 
-The following preprocessing steps were performed:
+The following preprocessing steps were performed before model training:
 
-- Categorical features were encoded using Label Encoding  
-- Target variable `deposit` was converted to binary format (yes → 1, no → 0)  
-- Dataset was split into training (80%) and testing (20%) sets  
-- Feature scaling was applied using StandardScaler for distance-based models  
+- Categorical features were converted into a numerical format using **Label Encoding**
+- The target variable `deposit` was converted to binary values (yes → 1, no → 0)
+- The dataset was split into **training (80%)** and **testing (20%)** sets
+- Feature scaling was applied using **StandardScaler** to improve the performance of distance-based models such as KNN and Logistic Regression
 
 ---
 
@@ -40,9 +40,9 @@ The following six machine learning classification models were implemented and ev
 3. K-Nearest Neighbors (KNN)  
 4. Naive Bayes Classifier  
 5. Random Forest Classifier (Ensemble Model)  
-6. XGBoost Classifier (Ensemble Model)
+6. XGBoost Classifier (Ensemble Model)  
 
-Each trained model was saved using Joblib for reuse in the Streamlit application.
+All trained models were saved using **Joblib** for reuse in the Streamlit web application.
 
 ---
 
@@ -55,31 +55,38 @@ Each model was evaluated using the following performance metrics:
 - Precision  
 - Recall  
 - F1 Score  
-- Matthews Correlation Coefficient (MCC)
+- Matthews Correlation Coefficient (MCC)  
+
+These metrics provide a comprehensive understanding of model performance, especially for binary classification problems.
 
 ---
 
 ## f. Model Performance Comparison
 
 | Model | Accuracy | AUC | Precision | Recall | F1 Score | MCC |
-|------|---------|-----|----------|--------|----------|-----|
+|------|----------|-----|-----------|--------|----------|-----|
 | Logistic Regression | 0.7900 | 0.7886 | 0.7931 | 0.7582 | 0.7753 | 0.5788 |
 | Decision Tree | 0.7631 | 0.7621 | 0.7582 | 0.7404 | 0.7492 | 0.5249 |
 | KNN | 0.7734 | 0.7711 | 0.7877 | 0.7198 | 0.7522 | 0.5461 |
 | Naive Bayes | 0.7465 | 0.7492 | 0.7042 | 0.8097 | 0.7533 | 0.5004 |
-| Random Forest | 0.8334 | 0.8343 | 0.8083 | 0.8538 | 0.8304 | 0.6679 |
-| XGBoost | 0.8424 | 0.8432 | 0.8178 | 0.8622 | 0.8394 | 0.6858 |
+| Random Forest (Ensemble) | 0.8334 | 0.8343 | 0.8083 | 0.8538 | 0.8304 | 0.6679 |
+| XGBoost (Ensemble) | 0.8424 | 0.8432 | 0.8178 | 0.8622 | 0.8394 | 0.6858 |
 
 ---
 
 ## g. Observations
 
-- Logistic Regression provided a strong baseline but could not capture complex non-linear patterns.
-- Decision Tree captured non-linear relationships but showed slight overfitting.
-- KNN performed reasonably well but was sensitive to feature scaling.
-- Naive Bayes achieved high recall but lower precision due to its independence assumption.
-- Random Forest significantly improved performance by reducing overfitting through ensemble learning.
-- XGBoost achieved the best overall performance by iteratively correcting model errors.
+| Model | Observation |
+|------|-------------|
+| Logistic Regression | Provided a strong baseline but could not capture complex non-linear patterns. |
+| Decision Tree | Captured non-linear relationships but showed signs of overfitting. |
+| KNN | Performed reasonably well but was sensitive to feature scaling and choice of neighbors. |
+| Naive Bayes | Achieved good recall but lower precision due to independence assumptions. |
+| Random Forest | Improved performance by reducing overfitting through ensemble learning. |
+| XGBoost | Achieved the best overall performance by iteratively correcting model errors. |
+
+
+
 
 ---
 
